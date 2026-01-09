@@ -12,3 +12,44 @@ generator client {
 datasource db {
   provider = "sqlite"
 }
+
+model User {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  username String   @unique
+  name     String
+  phone    String
+  website  String
+  posts    Post[]
+  company  Company?
+  address  Address?
+}
+
+model Post {
+  id     Int    @id @default(autoincrement())
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+  title  String
+  body   String
+}
+
+model Company {
+  id          Int    @id @default(autoincrement())
+  userId      Int    @unique
+  user        User   @relation(fields: [userId], references: [id])
+  name        String
+  catchPhrase String
+  bs          String
+}
+
+model Address {
+  id      Int    @id @default(autoincrement())
+  userId  Int    @unique
+  user    User   @relation(fields: [userId], references: [id])
+  street  String
+  suite   String
+  city    String
+  zipcode String
+  geo_lat String
+  geo_lng String
+}
