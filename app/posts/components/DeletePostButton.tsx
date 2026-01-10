@@ -22,20 +22,20 @@ export default function DeletePostButton({
 
       if (result.success) {
         showToast.success("¡Post deleted successfully!", {
-          duration: 2000,
+          duration: 3000,
           progress: true,
           position: "top-center",
-          transition: "topBounce",
+          transition: "popUp",
           icon: "",
           sound: true,
         });
         setIsOpen(false);
       } else {
         showToast.error("¡Post deletion failed!", {
-          duration: 2000,
+          duration: 3000,
           progress: true,
           position: "top-center",
-          transition: "topBounce",
+          transition: "popUp",
           icon: "",
           sound: true,
         });

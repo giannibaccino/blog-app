@@ -2,7 +2,7 @@ import Form from "next/form";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { Check } from "@gravity-ui/icons";
+import { FilePlus } from "@gravity-ui/icons";
 import {
   Description,
   TextField,
@@ -11,7 +11,6 @@ import {
   FieldError,
   Button,
   TextArea,
-  Header,
   ListBox,
   Select,
 } from "@heroui/react";
@@ -23,17 +22,6 @@ export default async function NewPost() {
       name: true,
     },
   });
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data: Record<string, string> = {};
-    // Convert FormData to plain object
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
-  };
 
   async function createPost(formData: FormData) {
     "use server";
@@ -51,11 +39,11 @@ export default async function NewPost() {
     });
 
     revalidatePath("/posts");
-    redirect("/posts");
+    redirect("/posts?success=true");
   }
 
   return (
-    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center  text-neutral-800'>
+    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center text-neutral-800'>
       <h1 className='text-4xl font-bold m-8'>Create Post</h1>
       <Form
         className='w-full max-w-md space-y-4 rounded-lg border border-border bg-surface p-6'
@@ -101,7 +89,8 @@ export default async function NewPost() {
           name='body'
         />
         <Button type='submit' className='w-full'>
-          Submit
+          <FilePlus />
+          Create post
         </Button>
       </Form>
     </div>

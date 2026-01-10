@@ -3,10 +3,12 @@ import DeletePostButton from "./components/DeletePostButton";
 import FilterForm from "./components/FilterForm";
 import { Card, Link } from "@heroui/react";
 import { ArrowUpRightFromSquare } from "@gravity-ui/icons";
+import ToastNotification from "../components/ToastNotification";
 
 type SearchParams = {
   authorId?: string;
   orderBy?: string;
+  success?: string;
 };
 
 export default async function Posts({
@@ -52,6 +54,7 @@ export default async function Posts({
 
   return (
     <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center  text-neutral-800'>
+      <ToastNotification />
       <h1 className='text-4xl font-bold m-8'>Posts</h1>
       <FilterForm
         users={users}
