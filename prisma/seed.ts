@@ -10,7 +10,9 @@ const userData: Prisma.UserCreateInput[] = [
   {
     name: "Leanne Graham",
     username: "Bret",
-    email: "Sincere@april.biz",
+    email: "leanne@demo.com",
+    phone: "1-770-736-8031",
+    website: "hildegard.org",
     address: {
       create: {
         street: "Kulas Light",
@@ -21,8 +23,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "81.1496",
       },
     },
-    phone: "1-770-736-8031 x56442",
-    website: "hildegard.org",
     company: {
       create: {
         name: "Romaguera-Crona",
@@ -33,63 +33,27 @@ const userData: Prisma.UserCreateInput[] = [
     posts: {
       create: [
         {
-          id: 1,
-          title:
-            "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-          body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+          title: "Async JavaScript explained",
+          body: "Promises and async/await simplify async code.",
         },
         {
-          id: 2,
-          title: "qui est esse",
-          body: "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
+          title: "Prisma with SQLite",
+          body: "Prisma works great for local development using SQLite.",
         },
         {
-          id: 3,
-          title: "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-          body: "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut",
-        },
-        {
-          id: 4,
-          title: "eum et est occaecati",
-          body: "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit",
-        },
-        {
-          id: 5,
-          title: "nesciunt quas odio",
-          body: "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque",
-        },
-        {
-          id: 6,
-          title: "dolorem eum magni eos aperiam quia",
-          body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-        },
-        {
-          id: 7,
-          title: "magnam facilis autem",
-          body: "dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas",
-        },
-        {
-          id: 8,
-          title: "dolorem dolore est ipsam",
-          body: "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae",
-        },
-        {
-          id: 9,
-          title: "nesciunt iure omnis dolorem tempora et accusantium",
-          body: "consectetur animi nesciunt iure dolore\nenim quia ad\nveniam autem ut quam aut nobis\net est aut quod aut provident voluptas autem voluptas",
-        },
-        {
-          id: 10,
-          title: "optio molestias id quia eum",
-          body: "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error",
+          title: "Clean architecture",
+          body: "Separating concerns improves maintainability.",
         },
       ],
     },
   },
+
   {
     name: "Ervin Howell",
     username: "Antonette",
-    email: "Shanna@melissa.tv",
+    email: "ervin@demo.com",
+    phone: "010-692-6593",
+    website: "anastasia.net",
     address: {
       create: {
         street: "Victor Plains",
@@ -100,8 +64,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "-34.4618",
       },
     },
-    phone: "010-692-6593 x09125",
-    website: "anastasia.net",
     company: {
       create: {
         name: "Deckow-Crist",
@@ -109,11 +71,28 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "synergize scalable supply-chains",
       },
     },
+    posts: {
+      create: [
+        {
+          title: "React fundamentals",
+          body: "Components are the building blocks of React.",
+        },
+        {
+          title: "State management",
+          body: "Local state vs global state decisions.",
+        },
+        { title: "API design", body: "Consistency is key in REST APIs." },
+        { title: "Error handling", body: "Fail fast and log properly." },
+      ],
+    },
   },
+
   {
     name: "Clementine Bauch",
     username: "Samantha",
-    email: "Nathan@yesenia.net",
+    email: "clementine@demo.com",
+    phone: "1-463-123-4447",
+    website: "ramiro.info",
     address: {
       create: {
         street: "Douglas Extension",
@@ -124,8 +103,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "-47.0653",
       },
     },
-    phone: "1-463-123-4447",
-    website: "ramiro.info",
     company: {
       create: {
         name: "Romaguera-Jacobson",
@@ -133,11 +110,24 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "e-enable strategic applications",
       },
     },
+    posts: {
+      create: [
+        { title: "TypeScript basics", body: "Types help catch bugs early." },
+        { title: "Enums vs unions", body: "Both have different use cases." },
+        {
+          title: "Code readability",
+          body: "Readable code is easier to debug.",
+        },
+      ],
+    },
   },
+
   {
     name: "Patricia Lebsack",
     username: "Karianne",
-    email: "Julianne.OConner@kory.org",
+    email: "patricia@demo.com",
+    phone: "493-170-9623",
+    website: "kale.biz",
     address: {
       create: {
         street: "Hoeger Mall",
@@ -148,8 +138,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "-164.2990",
       },
     },
-    phone: "493-170-9623 x156",
-    website: "kale.biz",
     company: {
       create: {
         name: "Robel-Corkery",
@@ -157,11 +145,24 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "transition cutting-edge web services",
       },
     },
+    posts: {
+      create: [
+        {
+          title: "Scaling Node.js",
+          body: "Horizontal scaling improves reliability.",
+        },
+        { title: "Environment configs", body: "Use env files wisely." },
+        { title: "Authentication", body: "JWT is stateless and scalable." },
+      ],
+    },
   },
+
   {
     name: "Chelsey Dietrich",
     username: "Kamren",
-    email: "Lucio_Hettinger@annie.ca",
+    email: "chelsey@demo.com",
+    phone: "(254)954-1289",
+    website: "demarco.info",
     address: {
       create: {
         street: "Skiles Walks",
@@ -172,8 +173,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "62.5342",
       },
     },
-    phone: "(254)954-1289",
-    website: "demarco.info",
     company: {
       create: {
         name: "Keebler LLC",
@@ -181,11 +180,24 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "revolutionize end-to-end systems",
       },
     },
+    posts: {
+      create: [
+        {
+          title: "UI design principles",
+          body: "Whitespace improves readability.",
+        },
+        { title: "Accessibility", body: "ARIA labels matter." },
+        { title: "Design systems", body: "Consistency speeds development." },
+      ],
+    },
   },
+
   {
-    name: "Mrs. Dennis Schulist",
+    name: "Dennis Schulist",
     username: "Leopoldo_Corkery",
-    email: "Karley_Dach@jasper.info",
+    email: "dennis@demo.com",
+    phone: "1-477-935-8478",
+    website: "ola.org",
     address: {
       create: {
         street: "Norberto Crossing",
@@ -196,8 +208,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "71.7478",
       },
     },
-    phone: "1-477-935-8478 x6430",
-    website: "ola.org",
     company: {
       create: {
         name: "Considine-Lockman",
@@ -205,11 +215,21 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "e-enable innovative applications",
       },
     },
+    posts: {
+      create: [
+        { title: "DevOps basics", body: "Automation reduces errors." },
+        { title: "CI/CD pipelines", body: "Deploy early, deploy often." },
+        { title: "Monitoring", body: "Metrics tell the real story." },
+      ],
+    },
   },
+
   {
     name: "Kurtis Weissnat",
     username: "Elwyn.Skiles",
-    email: "Telly.Hoeger@billy.biz",
+    email: "kurtis@demo.com",
+    phone: "210.067.6132",
+    website: "elvis.io",
     address: {
       create: {
         street: "Rex Trail",
@@ -220,8 +240,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "21.8984",
       },
     },
-    phone: "210.067.6132",
-    website: "elvis.io",
     company: {
       create: {
         name: "Johns Group",
@@ -229,11 +247,21 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "generate enterprise e-tailers",
       },
     },
+    posts: {
+      create: [
+        { title: "Database normalization", body: "Avoid redundant data." },
+        { title: "Indexes explained", body: "Indexes speed up queries." },
+        { title: "Query optimization", body: "Measure before optimizing." },
+      ],
+    },
   },
+
   {
-    name: "Nicholas Runolfsdottir V",
+    name: "Nicholas Runolfsdottir",
     username: "Maxime_Nienow",
-    email: "Sherwood@rosamond.me",
+    email: "nicholas@demo.com",
+    phone: "586.493.6943",
+    website: "jacynthe.com",
     address: {
       create: {
         street: "Ellsworth Summit",
@@ -244,8 +272,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "-120.7677",
       },
     },
-    phone: "586.493.6943 x140",
-    website: "jacynthe.com",
     company: {
       create: {
         name: "Abernathy Group",
@@ -253,11 +279,21 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "e-enable extensible e-tailers",
       },
     },
+    posts: {
+      create: [
+        { title: "Software testing", body: "Tests increase confidence." },
+        { title: "Unit vs integration tests", body: "Both are important." },
+        { title: "Mocking", body: "Mocks isolate behavior." },
+      ],
+    },
   },
+
   {
     name: "Glenna Reichert",
     username: "Delphine",
-    email: "Chaim_McDermott@dana.io",
+    email: "glenna@demo.com",
+    phone: "(775)976-6794",
+    website: "conrad.com",
     address: {
       create: {
         street: "Dayna Park",
@@ -268,8 +304,6 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "-168.8889",
       },
     },
-    phone: "(775)976-6794 x41206",
-    website: "conrad.com",
     company: {
       create: {
         name: "Yost and Sons",
@@ -277,11 +311,21 @@ const userData: Prisma.UserCreateInput[] = [
         bs: "aggregate real-time technologies",
       },
     },
+    posts: {
+      create: [
+        { title: "Agile methodology", body: "Iterate and adapt." },
+        { title: "Scrum roles", body: "Clear ownership improves flow." },
+        { title: "Kanban boards", body: "Visualize your work." },
+      ],
+    },
   },
+
   {
     name: "Clementina DuBuque",
     username: "Moriah.Stanton",
-    email: "Rey.Padberg@karina.biz",
+    email: "clementina@demo.com",
+    phone: "024-648-3804",
+    website: "ambrose.net",
     address: {
       create: {
         street: "Kattie Turnpike",
@@ -292,14 +336,19 @@ const userData: Prisma.UserCreateInput[] = [
         geo_lng: "57.2232",
       },
     },
-    phone: "024-648-3804",
-    website: "ambrose.net",
     company: {
       create: {
         name: "Hoeger LLC",
         catchPhrase: "Centralized empowering task-force",
         bs: "target end-to-end models",
       },
+    },
+    posts: {
+      create: [
+        { title: "Security basics", body: "Never trust user input." },
+        { title: "Password hashing", body: "Always hash passwords." },
+        { title: "OWASP top 10", body: "Know common vulnerabilities." },
+      ],
     },
   },
 ];
