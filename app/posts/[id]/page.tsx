@@ -20,10 +20,12 @@ export default async function Post({
 
   return (
     <div className='min-h-screen bg-gray-50 flex flex-col items-center justify-center -mt-16'>
-      <article className='max-w-2xl space-y-4 font-[family-name:var(--font-geist-sans)]'>
-        <h1 className='text-4xl font-bold mb-8 text-[#333333]'>{post.title}</h1>
+      <article className='max-w-2xl space-y-4'>
+        <h1 className='text-4xl font-bold mb-8 text-neutral-800'>
+          {post.title}
+        </h1>
         <p className='text-gray-600 text-center'>by {post.user.name}</p>
-        <div className='prose prose-gray mt-8'>
+        <div className='prose prose-gray mt-8 text-gray-800'>
           {post.body || "No content available."}
         </div>
       </article>

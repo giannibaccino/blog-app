@@ -3,18 +3,26 @@ import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export default function NewPost() {
+export default async function NewPost() {
+  const users = await prisma.user.findMany({
+    select: {
+      id: true,
+      name: true,
+    },
+  });
+
   async function createPost(formData: FormData) {
     "use server";
 
     const title = formData.get("title") as string;
     const body = formData.get("body") as string;
+    const userId = parseInt(formData.get("user") as string);
 
     await prisma.post.create({
       data: {
         title,
         body,
-        userId: 1,
+        userId,
       },
     });
 
@@ -37,6 +45,24 @@ export default function NewPost() {
             placeholder='Enter your post title'
             className='w-full px-4 py-2 border rounded-lg'
           />
+        </div>
+        <div>
+          <label htmlFor='user' className='block text-lg mb-2'>
+            Author
+          </label>
+          <select
+            id='user'
+            name='user'
+            required
+            className='w-full px-4 py-2 border rounded-lg'
+          >
+            <option value=''>Select an author</option>
+            {users.map((user) => (
+              <option key={user.id} value={user.id}>
+                {user.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label htmlFor='body' className='block text-lg mb-2'>
