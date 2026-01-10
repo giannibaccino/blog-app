@@ -2,6 +2,19 @@ import Form from "next/form";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { Check } from "@gravity-ui/icons";
+import {
+  Description,
+  TextField,
+  Label,
+  Input,
+  FieldError,
+  Button,
+  TextArea,
+  Header,
+  ListBox,
+  Select,
+} from "@heroui/react";
 
 export default async function NewPost() {
   const users = await prisma.user.findMany({
@@ -10,6 +23,17 @@ export default async function NewPost() {
       name: true,
     },
   });
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data: Record<string, string> = {};
+    // Convert FormData to plain object
+    formData.forEach((value, key) => {
+      data[key] = value.toString();
+    });
+    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+  };
 
   async function createPost(formData: FormData) {
     "use server";
@@ -31,57 +55,54 @@ export default async function NewPost() {
   }
 
   return (
-    <div className='max-w-2xl mx-auto p-4'>
-      <h1 className='text-2xl font-bold mb-6'>Create New Post</h1>
-      <Form action={createPost} className='space-y-6'>
-        <div>
-          <label htmlFor='title' className='block text-lg mb-2'>
-            Title
-          </label>
-          <input
-            type='text'
-            id='title'
-            name='title'
-            placeholder='Enter your post title'
-            className='w-full px-4 py-2 border rounded-lg'
+    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center  text-neutral-800'>
+      <h1 className='text-4xl font-bold m-8'>Create Post</h1>
+      <Form
+        className='w-full max-w-md space-y-4 rounded-lg border border-border bg-surface p-6'
+        action={createPost}
+      >
+        <TextField isRequired name='title'>
+          <Label className='text-sm font-medium text-neutral-800'>Title</Label>
+          <Input
+            className='rounded-full border-border/60'
+            placeholder='Enter your title'
           />
-        </div>
-        <div>
-          <label htmlFor='user' className='block text-lg mb-2'>
-            Author
-          </label>
-          <select
-            id='user'
-            name='user'
-            required
-            className='w-full px-4 py-2 border rounded-lg'
-          >
-            <option value=''>Select an author</option>
-            {users.map((user) => (
-              <option key={user.id} value={user.id}>
-                {user.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor='body' className='block text-lg mb-2'>
-            Body
-          </label>
-          <textarea
-            id='body'
-            name='body'
-            placeholder='Write your post body here...'
-            rows={6}
-            className='w-full px-4 py-2 border rounded-lg'
-          />
-        </div>
-        <button
-          type='submit'
-          className='w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600'
-        >
-          Create Post
-        </button>
+          <FieldError className='text-xs'>{`Title can't be empty`}</FieldError>
+        </TextField>
+        <Select placeholder='Select Author' name='user' isRequired>
+          <Label className='text-sm font-medium text-neutral-800'>Author</Label>
+          <Select.Trigger>
+            <Select.Value />
+            <Select.Indicator />
+          </Select.Trigger>
+          <Description />
+          <Select.Popover>
+            <ListBox className='text-neutral-800'>
+              {users.map((user) => (
+                <ListBox.Item
+                  key={user.id}
+                  id={user.id.toString()}
+                  textValue={user.name}
+                >
+                  {user.name}
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+              ))}
+            </ListBox>
+          </Select.Popover>
+          <FieldError>Must select an author</FieldError>
+        </Select>
+        <Label className='text-sm font-medium text-neutral-800'>Content</Label>
+        <TextArea
+          minLength={10}
+          aria-label='Post content'
+          className='h-32 w-96'
+          placeholder='Write your post content here...'
+          name='body'
+        />
+        <Button type='submit' className='w-full'>
+          Submit
+        </Button>
       </Form>
     </div>
   );

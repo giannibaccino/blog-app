@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import TabNavigation from "./components/TabNavigation";
 
 const roboto = Roboto({
   weight: "400",
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={`${roboto.className}`}>
-      <body>{children}</body>
+      <body>
+        <TabNavigation />
+        {children}
+      </body>
     </html>
   );
 }

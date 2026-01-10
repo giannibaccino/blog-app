@@ -23,7 +23,7 @@ export default async function User({
   }
 
   return (
-    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center -mt-16 text-neutral-800'>
+    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center text-neutral-800'>
       <Card className='w-100'>
         <Card.Header>
           <Card.Title className='text-gray-800 text-lg font-bold'>

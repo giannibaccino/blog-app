@@ -20,7 +20,7 @@ export default async function Post({
   }
 
   return (
-    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center -mt-16 text-neutral-800'>
+    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center text-neutral-800'>
       <article className='max-w-2xl space-y-4 text-center'>
         <h1 className='text-4xl font-bold text-neutral-800 text-center'>
           {post.title}
