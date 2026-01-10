@@ -1,18 +1,31 @@
-import prisma from "../lib/prisma";
+"use client";
 
-export default async function Home() {
-  const users = await prisma.user.findMany();
+import { Tabs } from "@heroui/react";
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+  const router = useRouter();
+
+  const handleTabChange = (key: React.Key) => {
+    router.push(`/${key}`);
+  };
 
   return (
     <div className='min-h-screen bg-gray-50 flex flex-col items-center justify-center -mt-16'>
-      <h1 className='text-4xl font-bold mb-8  text-[#333333]'>Superblog</h1>
-      <ol className='list-decimal list-inside'>
-        {users.map((user) => (
-          <li key={user.id} className='mb-2 text-lg text-[#555555]'>
-            {user.name}
-          </li>
-        ))}
-      </ol>
+      <Tabs className='w-full max-w-md' onSelectionChange={handleTabChange}>
+        <Tabs.ListContainer>
+          <Tabs.List aria-label='Options'>
+            <Tabs.Tab id='posts'>
+              Posts
+              <Tabs.Indicator />
+            </Tabs.Tab>
+            <Tabs.Tab id='users'>
+              Users
+              <Tabs.Indicator />
+            </Tabs.Tab>
+          </Tabs.List>
+        </Tabs.ListContainer>
+      </Tabs>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default async function User({
   }
 
   return (
-    <div className='min-h-screen bg-gray-50 flex flex-col items-center justify-center -mt-16'>
+    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center -mt-16 text-neutral-800'>
       <Card className='w-100'>
         <Card.Header>
           <Card.Title className='text-gray-800 text-lg font-bold'>
@@ -32,7 +32,7 @@ export default async function User({
           <Card.Description></Card.Description>
         </Card.Header>
         <Card.Content>
-          <ul className='list-disc list-inside ml-4 text-neutral-700'>
+          <ul className='text-neutral-700'>
             <li>
               <span className='font-bold'>Email:</span> {user.email}
             </li>
@@ -56,14 +56,14 @@ export default async function User({
             )}
           </ul>
         </Card.Content>
-        <Card.Footer className='border-t border-gray-800 flex flex-col'>
-          <h2 className='text-gray-800 text-md font-bold'>Posts</h2>
-          <ol className='list-disc list-inside ml-4'>
+        <Card.Footer className='border-t border-gray-300 flex flex-col'>
+          <h2 className='text-gray-800 font-bold '>Posts</h2>
+          <ol className='list-disc list-inside'>
             {user.posts.map((post) => (
               <li key={post.id}>
                 <Link
                   href={`/posts/${post.id}`}
-                  className='text-neutral-600 hover:underline'
+                  className='text-neutral-600 hover:text-blue-600 transition-colors'
                 >
                   {post.title.slice(0, 50)}
                   {"..."}

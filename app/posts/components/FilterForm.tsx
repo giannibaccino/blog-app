@@ -53,7 +53,7 @@ export default function FilterForm({
         value={authorId}
         onChange={(key) => setAuthorId(key as string)}
       >
-        <Label>Filter by Author</Label>
+        <Label className='text-neutral-600'>Filter by Author</Label>
         <Select.Trigger>
           <Select.Value />
           <Select.Indicator />
@@ -83,7 +83,7 @@ export default function FilterForm({
         value={orderBy}
         onChange={(key) => setOrderBy(key as string)}
       >
-        <Label>Order by</Label>
+        <Label className='text-neutral-600'>Order by</Label>
         <Select.Trigger>
           <Select.Value />
           <Select.Indicator />

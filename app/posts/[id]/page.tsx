@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import Link from "next/dist/client/link";
 import { notFound } from "next/navigation";
 
 export default async function Post({
@@ -19,12 +20,17 @@ export default async function Post({
   }
 
   return (
-    <div className='min-h-screen bg-gray-50 flex flex-col items-center justify-center -mt-16'>
-      <article className='max-w-2xl space-y-4'>
-        <h1 className='text-4xl font-bold mb-8 text-neutral-800'>
+    <div className='min-h-screen bg-slate-100 flex flex-col items-center justify-center -mt-16 text-neutral-800'>
+      <article className='max-w-2xl space-y-4 text-center'>
+        <h1 className='text-4xl font-bold text-neutral-800 text-center'>
           {post.title}
         </h1>
-        <p className='text-gray-600 text-center'>by {post.user.name}</p>
+        <Link
+          href={`/users/${post.user.id}`}
+          className='text-neutral-600 hover:text-blue-600 transition-colors text-sm'
+        >
+          by {post.user.name}
+        </Link>
         <div className='prose prose-gray mt-8 text-gray-800'>
           {post.body || "No content available."}
         </div>

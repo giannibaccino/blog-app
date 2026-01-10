@@ -18,7 +18,6 @@ export default async function Posts({
   const authorId = params?.authorId;
   const orderBy = params?.orderBy || "id-desc";
 
-  // Parse orderBy into field and direction
   const [orderField, orderDirection] = orderBy.split("-") as [
     string,
     "asc" | "desc",
@@ -73,9 +72,14 @@ export default async function Posts({
               </Card.Title>
               <Card.Description>
                 by{" "}
-                <span className='font-semibold text-gray-500'>
-                  {post.user.name}
-                </span>
+                <Link
+                  href={`/users/${post.user.id}`}
+                  className='text-neutral-600 hover:text-blue-600 transition-colors'
+                >
+                  <span className='font-semibold text-gray-500'>
+                    {post.user.name}
+                  </span>
+                </Link>
               </Card.Description>
             </Card.Header>
             <Card.Content>
