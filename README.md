@@ -32,7 +32,8 @@ The database schema includes Users, Posts, Addresses, and Companies. See the dia
 Seed the database with sample data:
 
 ```bash
-npm run seed
+npx prisma db push --force-reset
+npx prisma db seed
 ```
 
 See [seed.ts](./prisma/seed.ts) for details.
