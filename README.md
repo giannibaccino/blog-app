@@ -1,30 +1,38 @@
-## Get it Started!
+## Getting Started
+
+First, install dependencies:
+
+```bash
+npm install
+```
 
 Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-And open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Used tools
+## Tech Stack
 
-- NextJS
+- Next.js
 - Prisma ORM
 - SQLite
 - Tailwind CSS
 - Hero UI
-- Nextjs Toast Notify
+- React Hot Toast
 
-## Initial databse design
+## Database
 
-Database diagram scheme whimsical
+The database schema includes Users, Posts, Addresses, and Companies. See the diagram below:
 
-![Database scheme diagram](./docs/image.png)
+![Database Schema](./docs/image.png)
+
+Seed the database with sample data:
+
+```bash
+npm run seed
+```
+
+See [seed.ts](./prisma/seed.ts) for details.
