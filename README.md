@@ -6,6 +6,12 @@ First, install dependencies:
 npm install
 ```
 
+Generate database:
+
+```bash
+npx prisma generate
+```
+
 Run the development server:
 
 ```bash
